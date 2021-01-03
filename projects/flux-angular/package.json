@@ -1,5 +1,5 @@
 {
-  "name": "flux-angular-typescript",
+  "name": "ts-flux",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

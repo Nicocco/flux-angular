@@ -104,7 +104,8 @@ export class Dispatcher {
 
   private _startDispatching(payload: IPayloadAction): void {
     let callBackKeys: Array<string> = Array.from(this._callBacks.keys());
-    for (var id in callBackKeys) {
+    for (var i = 0; i < callBackKeys.length; i++) {
+      const id: string = callBackKeys[i];
       this._isPending.set(id, false);
       this._isHandled.set(id, false);
     }

@@ -1,9 +1,7 @@
 {
-  "name": "ts-flux",
-  "version": "1.0.0",
+  "name": "@lgm-clic/ts-flux",
+  "version": "1.1.0",
   "peerDependencies": {
-    "@angular/common": "^11.0.5",
-    "@angular/core": "^11.0.5"
   },
   "dependencies": {
     "tslib": "^2.0.0"

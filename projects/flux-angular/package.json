@@ -1,6 +1,9 @@
 {
   "name": "@lgm-clic/ts-flux",
-  "version": "1.1.0",
+  "version": "1.0.0-rc0",
+  "description": "Flux implementation for typescript project",
+  "author": {"name": "Nicolas MORISSEAU"},
+  "private":false,
   "peerDependencies": {
   },
   "dependencies": {

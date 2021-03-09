@@ -1,27 +1,61 @@
-# FluxWorkSpace
+# @lgm-clic/ts-flux
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+Using npm :
 
-## Development server
+```shell
+$ npm i @lgm-clic/ts-flux
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Usage
+Implementation of  flux partern design in angular. For a full comprehension of flux see [flux page](https://facebook.github.io/flux/)
 
-## Code scaffolding
+For using in typescript, create a dispatcher as a singleton for your app by extending Dispatcher class from @lgm-clic/ts-flux.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```ts
+import { Injectable } from "@angular/core";
+import { Dispatcher } from "ts-flux";
 
-## Build
+@Injectable({providedIn: 'root'})
+export class AppDispatcher extends Dispatcher {
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Then you need to create stores that extends Store class from ***@lgm-cli/ts-flux*** and provide an implementation for reduce function.
+The reduce function is the entry point of the store that digest event from dispatcher (automaticaly send inside base class @lgm-clic.ts-flux).
 
-## Running unit tests
+```ts
+import { Injectable } from "@angular/core";
+import { IPayloadAction, Store } from "ts-flux";
+import { AppDispatcher } from "./dispatcher";
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Injectable({ providedIn: 'root' })
+export class MenuStore extends Store {
 
-## Running end-to-end tests
+  private _isMenuOpen: boolean = false;
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  private _isMenuOpenSubject: BehaviorSubject<boolean>
+    = new BehaviorSubject<boolean>(this._isMenuOpen);
+  public $isMenuOpen: Observable<boolean> = this._isMenuOpenSubject.asObservable();
 
-## Further help
+  constructor(protected readonly dispatcher: AppDispatcher) {
+    super(dispatcher);
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  protected reduce(payload: IPayloadAction): void {
+    switch (payload.type) {
+      default: {
+        console.log("default menu store");
+        break;
+      }
+    }
+  }
+}
+
+```
+
+The IPayloadAction is an interface describing an action send from a view, through the dispatcher, to stores.
+Populate the reduce and expose store value with only observable.
+
+## Caution
+* do not write public setter in stores
+* don't forget to send event after updating store values with _attributSubject.next(newValue)

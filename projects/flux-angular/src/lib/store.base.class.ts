@@ -1,7 +1,7 @@
 import { IPayloadAction } from "./action.interface";
+import { DispatchToken } from "./constants/constantes.model";
 import { Dispatcher } from "./dispatcher.base.class";
 
-export type dispatchToken = string | undefined;
 export abstract class Store {
 
   //#region
@@ -9,7 +9,7 @@ export abstract class Store {
   //                                ATTRIBUTS
   //===========================================================================
 
-  private _dispatchToken: dispatchToken = undefined;
+  private _dispatchToken: DispatchToken = undefined;
 
   //#region
   //===========================================================================
@@ -24,7 +24,7 @@ export abstract class Store {
 
   //#region ----------------------------- GETTERS -----------------------------
 
-  public get dispatchToken(): dispatchToken {
+  public get dispatchToken(): DispatchToken {
     return this._dispatchToken;
   }
 

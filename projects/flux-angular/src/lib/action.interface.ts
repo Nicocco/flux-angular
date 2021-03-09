@@ -1,17 +1,17 @@
 type Action = string;
 export interface IPayloadAction {
   /**
-   * Le type d'action à réaliser.
+   * Action type
    */
   type: Action;
 
   /**
-   * Donnée optionnelle de l'action à réaliser.
+   * Optional data pass with the action
    */
   data?: any;
 
   /**
-   * Paramètre obtionnelle de l'action à réaliser.
+   * Optional params to pass with the action
    */
   params?: any;
 }

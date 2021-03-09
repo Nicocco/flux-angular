@@ -1,11 +1,12 @@
 {
   "name": "@lgm-clic/ts-flux",
-  "version": "1.0.0-rc0",
+  "version": "1.0.0-rc.1",
   "description": "Flux implementation for typescript project",
-  "author": {"name": "Nicolas MORISSEAU"},
-  "private":false,
-  "peerDependencies": {
+  "author": {
+    "name": "Nicolas MORISSEAU"
   },
+  "private": false,
+  "peerDependencies": {},
   "dependencies": {
     "tslib": "^2.0.0"
   }

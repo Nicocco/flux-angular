@@ -1,31 +1,31 @@
-# @lgm-clic/ts-flux
+# @la-clic/ts-flux
 
 Using npm :
 
 ```shell
-$ npm i @lgm-clic/ts-flux
+$ npm i @la-clic/ts-flux
 ```
 
 ## Usage
 Implementation of  flux partern design in angular. For a full comprehension of flux see [flux page](https://facebook.github.io/flux/)
 
-For using in typescript, create a dispatcher as a singleton for your app by extending Dispatcher class from @lgm-clic/ts-flux.
+For using in typescript, create a dispatcher as a singleton for your app by extending Dispatcher class from @la-clic/ts-flux.
 
 ```ts
 import { Injectable } from "@angular/core";
-import { Dispatcher } from "ts-flux";
+import { Dispatcher } from "@la-clic/ts-flux";
 
 @Injectable({providedIn: 'root'})
 export class AppDispatcher extends Dispatcher {
 }
 ```
 
-Then you need to create stores that extends Store class from ***@lgm-cli/ts-flux*** and provide an implementation for reduce function.
-The reduce function is the entry point of the store that digest event from dispatcher (automaticaly send inside base class @lgm-clic.ts-flux).
+Then you need to create stores that extends Store class from ***@a-cli/ts-flux*** and provide an implementation for reduce function.
+The reduce function is the entry point of the store that digest event from dispatcher (automaticaly send inside base class @la-clic.ts-flux).
 
 ```ts
 import { Injectable } from "@angular/core";
-import { IPayloadAction, Store } from "ts-flux";
+import { IPayloadAction, Store } from "@la-clic/ts-flux";
 import { AppDispatcher } from "./dispatcher";
 
 @Injectable({ providedIn: 'root' })
@@ -57,5 +57,6 @@ The IPayloadAction is an interface describing an action send from a view, throug
 Populate the reduce and expose store value with only observable.
 
 ## Caution
+
 * do not write public setter in stores
 * don't forget to send event after updating store values with _attributSubject.next(newValue)

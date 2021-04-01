@@ -3,7 +3,8 @@
   "version": "1.0.0-rc.1",
   "description": "Flux implementation for typescript project",
   "author": {
-    "name": "Nicolas MORISSEAU"
+    "name": "Nicolas MORISSEAU",
+    "url": "https://github.com/Nicocco/flux-angular/"
   },
   "private": false,
   "peerDependencies": {},

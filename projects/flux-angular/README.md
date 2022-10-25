@@ -6,6 +6,14 @@ Using npm :
 $ npm i @la-clic/ts-flux
 ```
 
+## Wich version to use
+
+| Angular version    | @la-cli/ts-flux version |
+| :-----------------:|:-----------------------:|
+| 11                 | 1.0.X                   |
+| 12                 | not supported           |
+| 13                 | not supported           | 
+
 ## Usage
 Implementation of  flux partern design in angular. For a full comprehension of flux see [flux page](https://facebook.github.io/flux/)
 
@@ -31,11 +39,11 @@ import { AppDispatcher } from "./dispatcher";
 @Injectable({ providedIn: 'root' })
 export class MenuStore extends Store {
 
-  private _isMenuOpen: boolean = false;
+  private _isMenuOpen: IMenuStoreObject;
 
-  private _isMenuOpenSubject: BehaviorSubject<boolean>
-    = new BehaviorSubject<boolean>(this._isMenuOpen);
-  public $isMenuOpen: Observable<boolean> = this._isMenuOpenSubject.asObservable();
+  private _menuObjectSubject: BehaviorSubject<IMenuStoreObject>
+    = new BehaviorSubject<IMenuStoreObject>(this._isMenuOpen);
+  public $isMenuOpen: Observable<IMenuStoreObject> = this._menuObjectSubject.asObservable();
 
   constructor(protected readonly dispatcher: AppDispatcher) {
     super(dispatcher);
@@ -59,4 +67,4 @@ Populate the reduce and expose store value with only observable.
 ## Caution
 
 * do not write public setter in stores
-* don't forget to send event after updating store values with _attributSubject.next(newValue)
+* don't forget to send event after updating store value

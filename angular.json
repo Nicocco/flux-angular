@@ -44,5 +44,8 @@
       }
     }
   },
-  "defaultProject": "fluxAngular"
+  "defaultProject": "fluxAngular",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,6 +1,7 @@
 {
   "name": "@la-clic/ts-flux",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
   "description": "Flux implementation for typescript project",
   "author": {
     "name": "Nicolas MORISSEAU",
